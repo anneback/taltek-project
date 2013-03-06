@@ -14,7 +14,7 @@ public class TestSound extends JFrame implements ActionListener
 	{  
 		this.wavFiles = new File[2];
 		wavFiles[0] = new File("boxing-bell.wav");  
-		wavFiles[1] = new File("2_jesper.wav"); 
+		wavFiles[1] = new File("2_jesper.wav");
 		this.soundList = new AudioClip[2];
 		
 		setSize(300,100);  

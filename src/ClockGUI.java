@@ -17,12 +17,12 @@ public class ClockGUI {
 	private JLabel timeDisplay = new JLabel();
 	 private static void createAndShowGUI() {
 	        //Create and set up the window.
-	        JFrame frame = new JFrame("TopLevelDemo");
+	        JFrame frame = new JFrame("Speaking clock");
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        
 	      //Create a panel and add components to it.
 	        JPanel contentPane = new JPanel(new FlowLayout());
-	        JButton button = new JButton("Vad är tiden?");
+	        JButton button = new JButton("What's the time yao?");
 	        button.setSize(50, 50);
 	        
 	        //contentPane.add(timeDisplay);
@@ -49,7 +49,7 @@ public class ClockGUI {
 	                createAndShowGUI();
 	            }
 	        });
-	        //new SpeechMaker();
+	        new SpeechMaker();
 	        
 	        
 	    }
