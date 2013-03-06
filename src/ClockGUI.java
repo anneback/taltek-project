@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
@@ -14,8 +16,13 @@ import javax.swing.JButton;
 
 public class ClockGUI {
 	
-	private JLabel timeDisplay = new JLabel();
-	 private static void createAndShowGUI() {
+	private static JLabel timeDisplay;
+	private ClockBackEnd backEndObject;
+	public ClockGUI() {
+		backEndObject = new ClockBackEnd();
+		timeDisplay = new JLabel("time");
+	}
+	 private void createAndShowGUI() {
 	        //Create and set up the window.
 	        JFrame frame = new JFrame("Speaking clock");
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,9 +32,13 @@ public class ClockGUI {
 	        JButton button = new JButton("What's the time yao?");
 	        button.setSize(50, 50);
 	        
-	        //contentPane.add(timeDisplay);
+	        button.addActionListener(new ActionListener() { 
+	        	public void actionPerformed(ActionEvent ae){ 
+	        		timeDisplay.setText(""+backEndObject.getTime());
+	        	}
+	        });
 	        contentPane.add(button);
-	        
+	        contentPane.add(timeDisplay);
 	        
 	        frame.setContentPane(contentPane);
 	        
@@ -37,20 +48,10 @@ public class ClockGUI {
 	        frame.setVisible(true);
 	 }
 	 
-
-	 public void mousePressed(MouseEvent e) {
-		 timeDisplay.setText(""+new ClockBackEnd().getTime());
-	 }
+	 
+	 
 	 public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-	        //Schedule a job for the event-dispatching thread:
-	        //creating and showing this application's GUI.
-	        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-	            public void run() {
-	                createAndShowGUI();
-	            }
-	        });
-	        new SpeechMaker();
-	        
-	        
+	        new ClockGUI().createAndShowGUI();
+	        new SpeechMaker();	        
 	    }
 }

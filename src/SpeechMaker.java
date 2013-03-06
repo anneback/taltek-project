@@ -29,7 +29,7 @@ public class SpeechMaker {
 			AudioInputStream audio1 = AudioSystem.getAudioInputStream(sample1);
 			AudioInputStream audio2 = AudioSystem.getAudioInputStream(sample2);
 
-			System.out.println(audio2.getFormat().toString());
+			//System.out.println(audio2.getFormat().toString());
 
 			audioBuild = new AudioInputStream(new SequenceInputStream(audio1, audio2), audio1.getFormat(),
 					audio1.getFrameLength() + audio2.getFrameLength());
